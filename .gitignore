@@ -60,7 +60,6 @@ build
 dist
 
 # Hardhat
-artifacts
 cache
 
 # Docusaurus cache and generated files
