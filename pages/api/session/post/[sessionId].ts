@@ -11,8 +11,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	let now = Math.floor(Date.now() / 1000);
 	try {
 		await excuteQuery({
-			query: `UPDATE ama_sessions SET is_posted = ${1}, updated_at = ${now} WHERE session_id = ${sessionId} AND owner = ${owner}`,
-			values: [],
+			query: "UPDATE ama_sessions SET is_posted = ?, updated_at = ? WHERE session_id = ? AND owner = ?",
+			values: [1, now, sessionId, owner],
 		});
 		res.status(200).end();
 	} catch (error: any) {

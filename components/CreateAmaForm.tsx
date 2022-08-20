@@ -79,7 +79,6 @@ export default function CreateAmaForm() {
 
 				// get current fee from contract
 				let fee = await contract.getFee();
-				console.log(fee);
 				// send data on-chain
 				let options = { value: fee };
 				await contract.createAmaSession(BigNumber.from(sessionId), options);

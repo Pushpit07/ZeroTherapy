@@ -18,12 +18,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			.send({ from: account, gas: 6721900, gasPrice: 35000000000 });
 
 		await excuteQuery({
-			query: `UPDATE ama_questions SET is_posted = ${1} WHERE question_id = ${questionId}`,
-			values: [],
+			query: "UPDATE ama_questions SET is_posted = ? WHERE question_id = ?",
+			values: [1, questionId],
 		});
 		res.status(200).end();
 	} catch (error: any) {
-		console.log(error);
 		res.status(500).send(error.reason || "Failed to post question");
 	}
 }

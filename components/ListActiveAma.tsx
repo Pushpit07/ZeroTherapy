@@ -59,7 +59,7 @@ export default function ListActiveAma() {
 			return;
 		}
 		await provider.request({ method: "eth_requestAccounts" });
-		toast("Create your Semaphore identity...");
+		toast("Creating your Semaphore identity...");
 		const ethersProvider = new providers.Web3Provider(provider);
 		const signer = ethersProvider.getSigner();
 		const message = await signer.signMessage("ZeroTherapy - Sign message to proceed");

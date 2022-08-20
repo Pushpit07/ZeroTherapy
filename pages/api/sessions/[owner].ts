@@ -7,8 +7,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	} = req;
 
 	const result = await excuteQuery({
-		query: `SELECT session_id, name, hosts, description, owner, created_at, updated_at, status FROM ama_sessions WHERE owner = ${owner} AND is_posted = ${0} order by session_id DESC`,
-		values: [],
+		query: "SELECT session_id, name, hosts, description, owner, created_at, updated_at, status FROM ama_sessions WHERE owner = ? AND is_posted = ? order by session_id DESC",
+		values: [owner, 1],
 	});
 	res.status(200).send(result);
 }

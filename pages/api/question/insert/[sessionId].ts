@@ -10,10 +10,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	// store question to offchain first because we need the question id
 	// questions are not posted to site until post to onchain is successful
 	const result = await excuteQuery({
-		query: `INSERT INTO ama_questions (session_id, content, created_at, is_posted) VALUES (${sessionId}, ${JSON.stringify(content)}, ${Math.floor(
-			Date.now() / 1000
-		)}, ${0})`,
-		values: [],
+		query: "INSERT INTO ama_questions (session_id, content, created_at, is_posted) VALUES (?, ?, ?, ?)",
+		values: [sessionId, content, Math.floor(Date.now() / 1000), 0],
 	});
 
 	if (result && result.insertId) res.status(200).send(result.insertId);
