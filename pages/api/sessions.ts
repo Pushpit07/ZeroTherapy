@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import excuteQuery from "../../lib/db";
-import { CONSTANTS } from "../../lib/constants";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	try {
