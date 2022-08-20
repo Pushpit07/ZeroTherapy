@@ -76,3 +76,4 @@ cache
 .yarn/install-state.gz
 .pnp.*
 .env.development
+sql_q

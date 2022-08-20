@@ -4,8 +4,9 @@ ZeroTherapy allows a counselor to create an AMA counseling session where the aud
 
 It leverages on Semaphore and zk-proofs to preserve the user’s identity.
 
-- Website: https://zero-therapy.vercel.app
+Website: https://zero-therapy.vercel.app
 
+<img src="./public/images/frontend.png" width="800px" height="auto"/>
 
 # Features
 
@@ -43,7 +44,6 @@ Rename .env.example to .env and input the database connection properties.
 - `yarn dev` to start a local node. Import a few of the test accounts into Metamask for testing purposes.
 - `yarn deploy --network localhost` to deploy the smart contracts to the local node.
 
-<img src="https://github.com/violetwee/ZeroTherapy/blob/main/screenshots/frontend.png" width="800px" height="auto"/>
 
 Copy the AMA contract address to lib/config.json
 
