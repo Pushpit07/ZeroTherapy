@@ -19,12 +19,20 @@ const config: HardhatUserConfig = {
     networks: {
         testnet: {
             url: `${process.env.HMY_TESTNET_RPC_URL}`,
-            accounts: [`0x${process.env.HMY_PRIVATE_KEY}`]
+            accounts: [`0x${process.env.PRIVATE_KEY}`]
         },
         mainnet: {
             url: `${process.env.HMY_MAINNET_RPC_URL}`,
-            accounts: [`0x${process.env.HMY_PRIVATE_KEY_MAINNET}`]
-        }
+            accounts: [`0x${process.env.PRIVATE_KEY}`]
+        },
+        mumbai: {
+			url: "https://polygon-mumbai.g.alchemy.com/v2/8qorAGwStqgObuxITbYVAD3T2BI1jC36",
+			accounts: [`${process.env.PRIVATE_KEY}`],
+			gas: 12000000,
+			gasPrice: 35000000000,
+			blockGasLimit: 210000000,
+			timeout: 1800000,
+		},
     },
     gasReporter: {
         enabled: process.env.REPORT_GAS !== undefined,

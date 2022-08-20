@@ -25,9 +25,9 @@ contract AMA is SemaphoreCore, SemaphoreGroups, Ownable {
     event FeeChanged(uint256 newFee);
 
     // AMA session states
-    // NotStarted: Allows host to pre-create AMA session but keep it as inactive state. Audience may join but cannot post questions yet
+    // NotStarted: Allows counselor to pre-create AMA session but keep it as inactive state. Audience may join but cannot post questions yet
     // Active: Audience may post questions
-    // Paused: Host may pause a session temporarily if the number of questions is overwhelming or if the host wants to answer the current set of questions first
+    // Paused: Counselor may pause a session temporarily if the number of questions is overwhelming or if the counselor wants to answer the current set of questions first
     // Ended: AMA session has ended. This is the final state. No more questions.
     uint256 constant NOT_STARTED = 1;
     uint256 constant PAUSED = 2;
@@ -51,7 +51,7 @@ contract AMA is SemaphoreCore, SemaphoreGroups, Ownable {
     mapping(uint256 => uint256[]) public amaSessionIdentityCommitments; // sessionId => identityCommitment[]
     mapping(uint256 => uint256[]) public amaSessionQuestionList; // sessionId => questionId[]
 
-    uint256 fee = 10000000000000000000; // default fee
+    uint256 fee = 10000000000000000; // default fee
 
     // The external verifier used to verify Semaphore proofs.
     IVerifier public verifier;
