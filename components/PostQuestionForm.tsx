@@ -6,8 +6,8 @@ import { generateMerkleProof, genExternalNullifier, MerkleProof, Semaphore } fro
 import ListQuestions from "./ListQuestions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { FormGroup, Form, Input, Row, Col, Button } from "reactstrap";
+import HuddleFrame from "./HuddleFrame";
 
 const initialValues = {
 	content: "",
@@ -115,8 +115,25 @@ export default function PostQuestionForm({ sessionId }: Props) {
 		setIsProcessing(false);
 	};
 
+	const [isHuddleModalOpen, setHuddleModalOpen] = useState(false);
+
 	return (
-		<div className="p-3">
+		<div className="p-2">
+			<div className="text-md-center mb-5">
+				<Button
+					onClick={(e) => {
+						e.preventDefault();
+						setHuddleModalOpen(true);
+					}}
+					color="primary"
+					type="button"
+					disabled={isProcessing}
+				>
+					{isProcessing ? "Please wait..." : "Join Huddle"}
+				</Button>
+				{isHuddleModalOpen && <HuddleFrame sessionId={sessionId} />}
+			</div>
+
 			<Form onSubmit={handlePostQuestion}>
 				<Row>
 					<Col md="12">
