@@ -32,6 +32,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		// join AMA session (a.k.a Semaphore Group)
 		const { contract, account } = await getContract();
 
+		console.log("account address:", account);
+
 		try {
 			const _result = await contract.methods.joinAmaSession(sessionId, BigNumber.from(identityCommitment)).send({
 				from: account,
