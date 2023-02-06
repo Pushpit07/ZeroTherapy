@@ -7,7 +7,8 @@ const getContract = async () => {
 	let env = process.env.NODE_ENV;
 
 	// set RPC URL and PTE KEY based on env
-	const RPC_URL = env == "development" ? process.env.MUMBAI_TESTNET_RPC_URL : process.env.MUMBAI_MAINNET_RPC_URL;
+	// const RPC_URL = env == "development" ? process.env.MUMBAI_TESTNET_RPC_URL : process.env.MUMBAI_MAINNET_RPC_URL;
+	const RPC_URL = env == "development" ? process.env.MUMBAI_TESTNET_RPC_URL : process.env.MUMBAI_TESTNET_RPC_URL;
 	const PTE_KEY = env == "development" ? "0x" + process.env.PRIVATE_KEY : "0x" + process.env.PRIVATE_KEY;
 
 	const web3 = new Web3(RPC_URL as string);
