@@ -4,7 +4,7 @@ ZeroTherapy allows a counselor to create an AMA counseling session where the aud
 
 It leverages on Semaphore and zk-proofs to preserve the user’s identity.
 
-Website: https://zero-therapy.vercel.app
+Website: https://zerotherapy.vercel.app
 
 <img src="./public/images/frontend.png" width="800px" height="auto"/>
 
